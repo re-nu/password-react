@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Button from '@mui/material/Button';
+import { Route, Switch, useHistory } from 'react-router-dom';
+import { PasswordReset } from './PasswordReset';
+import { Login } from './Login';
 
 function App() {
+  const history=useHistory()
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Button 
+       onClick={history.push("/")}
+       variant="text">Reset Password
+      </Button>
+
+      <Button 
+       onClick={history.push("/login")}
+       variant="text">Login
+      </Button> */}
+
+      <Switch>
+        <Route exact path="/"><PasswordReset/></Route>
+        <Route path="/login"><Login/></Route>
+      </Switch>
     </div>
   );
 }
 
 export default App;
+
+
